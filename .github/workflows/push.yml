@@ -3,9 +3,9 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: golang:1.24
+    container: golang:1.22
     steps:
-      - uses: actions/checkout@v6.0.1
+      - uses: actions/checkout@v4
 
       - name: Run Unit Tests
         run: GOOS=linux GOARCH=amd64 go test
@@ -27,9 +27,9 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v3.6.0
+        uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAMR }}
+          username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
