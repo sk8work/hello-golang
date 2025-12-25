@@ -1,3 +1,3 @@
 module github.com/sk8work/hello-golang
 
-go 1.23.2
+go 1.24.9
